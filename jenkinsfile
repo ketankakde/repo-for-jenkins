@@ -4,8 +4,15 @@ pipeline {
     stages {
         stage('Pull') {
             steps {
-                git branch: 'main', url: 'https://github.com/shubhamkalsait/EasyCRUD.git'
+                git branch: 'main', url: 'https://github.com/ketankakde/repo-for-jenkins.git'
             }
+        stage('Nginx') {
+            steps {
+                sh '''sudo apt install nginx -y
+                sudo systemctl start nginx
+                sudo mv /var/lib/jenkins/workspace/first-pipeline/* /var/www/html/'''
+            }
+           }     
         }    
     }    
 }
