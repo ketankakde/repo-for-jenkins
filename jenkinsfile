@@ -11,8 +11,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                sudo cd /var/lib/jenkins/workspace/first-pipeline/backend
-                sudo mvn clean package
+                cd backend
+                mvn clean package
                 '''
             }
         }
