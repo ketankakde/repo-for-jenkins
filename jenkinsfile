@@ -15,10 +15,11 @@ pipeline {
                 mvn clean package -DskipTests
                 '''
             }
+         }
         stage('SonarQube Analysis') {
             steps {
                 dir('backend') {
-                    withSonarQubeEnv('sonar') {   // Sonar server name in Jenkins
+                    withSonarQubeEnv('sonar') {
                         sh 'mvn clean vaerify sonar:sonar'
                     }
                 }
@@ -27,4 +28,4 @@ pipeline {
 
         }
     }
-}
+
