@@ -15,7 +15,7 @@ pipeline {
                 mvn clean package -DskipTests
                 '''
             }
-         }
+         }  
         stage('SonarQube Analysis') {
             steps {
                     withSonarQubeEnv('sonar') {
@@ -25,7 +25,11 @@ pipeline {
                         '''
                     }
             }
-        }
+        }   
+        stage('Quality Gate') {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
 
         }
     }
