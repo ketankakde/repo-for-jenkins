@@ -13,10 +13,10 @@ pipeline {
                 sh '''
                 cd backend
                 mvn clean package -DskipTests
-                cd target
-                nohup java -jar student-registration-backend-0.0.1-SNAPSHOT.jar > app.log 2>&1 &
                 '''
             }
+        stage('Test') {
+            steps {
         }
     }
 }
