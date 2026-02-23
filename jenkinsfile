@@ -30,7 +30,11 @@ pipeline {
             steps {
                 waitForQualityGate abortPipeline: true
             }
-
+        }
+        stage('Deploy') {
+            steps {
+                    echo "Deploy Success!!!"
+                  }
         }
     }
-
+}
