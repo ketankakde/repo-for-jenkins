@@ -20,7 +20,7 @@ pipeline {
             steps {
                 dir('target') {
                     withSonarQubeEnv('sonar') {
-                        sh 'mvn clean vaerify sonar:sonar'
+                        sh 'mvn clean verify sonar:sonar'
                     }
                 }
             }
