@@ -18,9 +18,9 @@ pipeline {
          }
         stage('SonarQube Analysis') {
             steps {
-                dir('target') {
+                dir('backend') {
                     withSonarQubeEnv('sonar') {
-                        sh 'mvn clean verify sonar:sonar'
+                        sh 'mvn sonar:sonar'
                     }
                 }
             }
